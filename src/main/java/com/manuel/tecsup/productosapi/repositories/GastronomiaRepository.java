@@ -40,6 +40,28 @@ private static final Logger logger = LoggerFactory.getLogger(GastronomiaReposito
 		
 		return gastronomias;
 	}
+	
+	public Gastronomia obtener(Integer id) {
+		logger.info("call obtener(" + id + ")");
+		
+		String sql="select * from Gastronomia where id=?";
+		
+		Gastronomia gastronomia=jdbcTemplate.queryForObject(sql,new RowMapper<Gastronomia>() {
+			@Override
+			public Gastronomia mapRow(ResultSet rs, int rowNum) throws SQLException{
+				Gastronomia gastronomia=new Gastronomia();
+				gastronomia.setId(rs.getInt("id"));
+				gastronomia.setTipo(rs.getString("tipo"));
+				gastronomia.setImagen(rs.getString("imagen"));
+				gastronomia.setNombre(rs.getString("nombre"));
+				gastronomia.setDescripcion(rs.getString("descripcion"));
+				
+				return gastronomia;
+			}
+		},id);
+		logger.info("gastronomia: " + gastronomia);
+		return gastronomia;
+	}
 
 
 }

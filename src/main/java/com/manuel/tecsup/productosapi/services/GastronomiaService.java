@@ -16,4 +16,8 @@ public class GastronomiaService {
 	public List<Gastronomia>listar(){
 		return gastronomiaRepository.listar();
 	}
+	
+	public Gastronomia obtener(Integer id) {
+		return gastronomiaRepository.obtener(id);
+	}
 }

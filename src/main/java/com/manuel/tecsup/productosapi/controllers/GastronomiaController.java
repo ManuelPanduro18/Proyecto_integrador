@@ -35,6 +35,19 @@ private static final Logger logger = LoggerFactory.getLogger(HelloController.cla
 		return gastronomias;
 	}
 	
+	
+	@GetMapping("/gastronomias/{id}")
+	public Gastronomia gastronomia(@PathVariable Integer id){
+		logger.info("call gastronomia(" + id + ")");
+		
+		Gastronomia gastronomia= gastronomiaService.obtener(id);
+		logger.info("Gastronomia: " + gastronomia);
+		
+		return gastronomia;
+	}
+	
+	
+	
 	@GetMapping("/gastronomias/imagenes/{filename:.+}")
 	public ResponseEntity<Resource> files(@PathVariable String filename) throws Exception{
 		logger.info("call imagenes: " + filename);
