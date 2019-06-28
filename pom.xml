@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.manuel.tecsup</groupId>
 	<artifactId>temas_api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
 	<name>temas_api</name>
 	<description>Servicios rest de temas</description>
